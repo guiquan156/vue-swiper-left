@@ -2,10 +2,24 @@
   "name": "vue-swiper-left",
   "version": "1.0.0",
   "description": "swiper left and show some in vue",
-  "main": "index.js",
+  "main": "dist/swiper-left.umd.js",
+  "module": "dist/swiper-left.esm.js",
+  "unpkg": "dist/swiper-left.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vue serve --open index.js",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/swiper-left.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/swiper-left.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/swiper-left.min.js"
   },
   "author": "Lian",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^1.9.0",
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-vue": "^4.7.2",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  }
 }

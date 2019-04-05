@@ -1,4 +1,4 @@
-import SwiperLeft from './scr/swiper-left';
+import SwiperLeft from './src/swiper-left.vue';
 
 SwiperLeft.install = function () {
   Vue.component(SwiperLeft.name, SwiperLeft);
