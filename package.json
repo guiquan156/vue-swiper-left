@@ -6,7 +6,7 @@
   "module": "dist/swiper-left.esm.js",
   "unpkg": "dist/swiper-left.min.js",
   "scripts": {
-    "dev": "vue serve demo/app.vue",
+    "serve": "vue serve demo/app.vue",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/swiper-left.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/swiper-left.esm.js",
