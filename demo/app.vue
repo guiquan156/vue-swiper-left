@@ -1,7 +1,10 @@
 <template>
   <div class="app">
     <swiper-left class="item" v-for="item in list" :key="item.id">
-      this is the {{item.id}} item
+      <div class="content">this is the {{item.id}} item</div>
+      <template slot="left">
+        <span class="delete">delete</span>
+      </template>
     </swiper-left>
   </div>
 </template>
@@ -16,7 +19,7 @@ export default {
     const list = '1'.repeat(10).split('')
       .map((item, index) => ({id: index, ctn: index}));
     return {
-      list
+      list,
     };
   },
   methods: {
@@ -36,8 +39,21 @@ export default {
   width: 100%;
   height: 60px;
   border-bottom: 1px solid #eee;
-  padding: 12px;
   line-height: 35px;
+}
+
+.content {
+  padding: 12px;
+}
+
+.delete {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: #ed3f3f;
+  text-align: center;
+  line-height: 59px;
 }
 </style>
 
