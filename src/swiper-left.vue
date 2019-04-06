@@ -1,10 +1,14 @@
 <template>
-  <div class="swiper-left" :style="swiperStyle">
-    <div class="swp-right">
-      <slot></slot>
-    </div>
-    <div class="swp-left" :style="leftStyle">
-      <slot name="left"></slot>
+  <div class="swiper-left">
+    <div class="swp-item"
+      :style="swiperStyle"
+      ref="swp">
+      <div class="swp-right">
+        <slot></slot>
+      </div>
+      <div class="swp-left" :style="leftStyle">
+        <slot name="left"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +45,16 @@ export default {
         marginRight: '-' + this.width,
       }
     }
+  },
+  mounted () {
+    const $swp = this.$refs.swp;
+
+    // reset
+    $swp.addEventListener('click', () => {
+      console.log(this.slid);
+      if (this.slid) this.slid = false;
+    });
+
   }
 }
 </script>
@@ -50,13 +64,17 @@ export default {
   width: 100%;
   overflow: hidden;
 }
+.swiper-left .swp-item {
+  height: 100%;
+  transition: transform .3s ease;
+}
 .swiper-left .swp-right,
 .swiper-left .swp-left {
   height: 100%;
   float: left;
 }
 .swiper-left .swp-right {
-  width: 100%;
+  width: 100vw;
 }
 </style>
 

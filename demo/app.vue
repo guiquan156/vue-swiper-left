@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <swiper-left class="item" v-for="item in list" :key="item.id">
+    <swiper-left class="item" v-for="item in list" :key="item.id" :defaultSlid="true">
       <div class="content">this is the {{item.id}} item</div>
       <template slot="left">
         <span class="delete">delete</span>
