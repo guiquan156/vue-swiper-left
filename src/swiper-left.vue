@@ -140,6 +140,15 @@ export default {
   height: 100%;
   transition: transform .3s ease;
 }
+.swiper-left .swp-item::after {
+  content: '';
+  display: block;
+  font-size: 0;
+  height: 0;
+  width: 0;
+  clear: both;
+  overflow: hidden;
+}
 .swiper-left .swp-left,
 .swiper-left .swp-right {
   height: 100%;
