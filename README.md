@@ -2,7 +2,7 @@
 
 a vue component that swipe the item left and show something!!~
 
-![demo](.demo.png)
+![demo](https://guiquan156.github.io/asserts/imgs/swiper-left-demo.gif)
 
 ## install
 
