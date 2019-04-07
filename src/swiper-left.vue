@@ -19,19 +19,16 @@ export default {
   name: 'SwiperLeft',
   props: {
     width: {
-      default () {
-        return 100;
-      }
+      type: Number,
+      default: 100
     },
     minWidth: {
-      default () {
-        return 80;
-      }
+      type: Number,
+      default: 80
     },
     defaultSlid: {
-      default () {
-        return false
-      }
+      type: Boolean,
+      default: false
     }
   },
   data () {
