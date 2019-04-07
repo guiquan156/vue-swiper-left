@@ -1,6 +1,6 @@
 {
   "name": "vue-swiper-left",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "swiper left and show some in vue",
   "main": "dist/swiper-left.umd.js",
   "module": "dist/swiper-left.esm.js",
