@@ -56,9 +56,10 @@ export default {
     const $swp = this.$refs.swp;
     let startTouch = null;
     let startStamp = 0;
-    let isHor = false; // 是否水平移动
+    let direction = ''; // 滑动方向，水平'hor'或垂直'ver'
     let pos = 0;
     let deltaX = 0;
+    let deltaY = 0;
 
     // reset
     $swp.addEventListener('click', () => {
@@ -74,14 +75,15 @@ export default {
     $swp.addEventListener('touchmove', (e) => {
       const touch = e.touches[0];
 
-      if (!isHor && touch.clientY == startTouch.clientY) {
-        isHor = true;
-      }
-
-      if (!isHor) return; // 不是水平移动就不处理了
-
       // 处理滑动
       deltaX = touch.clientX - startTouch.clientX;
+      deltaY = touch.clientY - startTouch.clientY;
+
+      if (!direction) {
+        direction = Math.abs(deltaX) - Math.abs(deltaY) > 5 ? 'hor' : 'ver';
+      }
+
+      if (direction !== 'hor') return;
 
       if (this.slid) {
         pos = Math.min(Math.max(deltaX, 0), this.width) - this.width;
@@ -118,8 +120,9 @@ export default {
         }
       }
 
+      // 重置初始值
       $swp.style.transition = 'transform .3s ease';
-      isHor = false;
+      direction = '';
       startTouch = null;
       deltaX = 0;
     });

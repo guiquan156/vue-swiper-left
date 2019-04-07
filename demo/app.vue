@@ -16,7 +16,7 @@ export default {
     SwiperLeft
   },
   data () {
-    const list = '1'.repeat(10).split('')
+    const list = '1'.repeat(20).split('')
       .map((item, index) => ({id: index, ctn: index}));
     return {
       list,
